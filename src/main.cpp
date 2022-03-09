@@ -1,3 +1,5 @@
+#include "Core/Application.h"
+
 #include <iostream>
 #include <cstdlib>
 #include <memory>
@@ -5,6 +7,19 @@
 #include <glad/glad.h>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
+
+
+Core::Application* Core::CreateApplication(Core::ApplicationCommandLineArgs args) {
+    return new Core::Application("OpenGL Tutorial", args);
+}
+
+int main(int argc, char **argv) {
+    Core::Application* app = Core::CreateApplication({argc, argv});
+
+    app->Run();
+
+    delete app;
+}
 
 const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
@@ -34,7 +49,7 @@ void processInput(GLFWwindow *window)
         glfwSetWindowShouldClose(window, true);
 }
 
-
+/*
 int main(int argc, char **argv)
 {
     if(!glfwInit()) {
@@ -158,3 +173,4 @@ int main(int argc, char **argv)
     glfwTerminate();
     exit(EXIT_SUCCESS);
 } // end main()
+*/

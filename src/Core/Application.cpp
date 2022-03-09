@@ -6,7 +6,7 @@
 namespace Core {
     Application* Application::s_Instance = nullptr;
 
-    Application::Application(const std::string& name) {
+    Application::Application(const std::string& name, ApplicationCommandLineArgs args) {
         s_Instance = this;
         m_window = Window::Create(WindowProps(name));
     }
