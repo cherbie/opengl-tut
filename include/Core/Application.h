@@ -1,14 +1,15 @@
 #pragma once
+#include "Core/Window.h"
 
 #include <memory>
 #include <string>
 
-#include "Core/Window.h"
+int main(int argc, char **argv);
 
 namespace Core {
     class Application { 
     public:
-        Application(std::string& name = "OpenGL Tutorial");
+        Application(const std::string& name = "OpenGL Tutorial");
         virtual ~Application();
 
         void Close();
@@ -18,8 +19,8 @@ namespace Core {
         static Application& Get() { return *s_Instance; };
     private:
         void Run();
-        bool OnWindowClose(WindowCloseEvent& e);
-        bool OnWindowResize(WindowResizeEvent& e);
+        void OnWindowClose();
+        void OnWindowResize();
 
     private:
         std::unique_ptr<Window> m_window;

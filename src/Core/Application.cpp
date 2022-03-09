@@ -1,12 +1,14 @@
 #include "Core/Application.h"
 
+#include "glad/glad.h"
+#include <iostream>
+
 namespace Core {
     Application* Application::s_Instance = nullptr;
 
     Application::Application(const std::string& name) {
         s_Instance = this;
-        m_Window = Window::Create(WindowProps(name));
-        m_Window->SetEventCallback(Application::OnEvent);
+        m_window = Window::Create(WindowProps(name));
     }
 
     Application::~Application()
@@ -17,15 +19,21 @@ namespace Core {
         m_running = false;
     }
 
-    Application::Run() {
+    void Application::Run() {
         while (m_running) {
             // do something
         }
     }
 
-
-    Application::OnWindowResize() {
-        // do something;
+    Window& Application::GetWindow() {
+        return *((Window*)m_window->GetNativeWindow());
     }
 
+    void Application::OnWindowClose() {
+        std::cout << "closed window" << std::endl;
+    }
+
+    void Application::OnWindowResize() {
+        std::cout << "resize" << std::endl;
+    }
 } // namespace Core

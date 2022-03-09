@@ -16,22 +16,19 @@ namespace Core {
             : Title(title), Width(width), Height(height)
         {
         }
-    } // struct WindowProps
+    }; // struct WindowProps
 
     // interface representing a desktop system based window
     class Window {
         public: 
-            virtual ~Window() = default();
+            virtual ~Window() = default;
 
-            virtual void OnUpdate();
+            virtual void OnUpdate() = 0;
             virtual uint32_t GetWidth() const = 0;
             virtual uint32_t GetHeight() const = 0;
 
             virtual void* GetNativeWindow() const = 0;
             
             static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
-        protected:
-            class WindowCore;
-            std::unique_ptr<WindowCore> m_core; 
     }; // class Window
 } // namespace Core

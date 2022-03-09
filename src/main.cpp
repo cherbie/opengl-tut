@@ -6,7 +6,6 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
-
 const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "void main()\n"
@@ -36,7 +35,7 @@ void processInput(GLFWwindow *window)
 }
 
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     if(!glfwInit()) {
         std::cerr << "Error initializing GLFW" << std::endl;
@@ -158,4 +157,4 @@ int main(int argc, char *argv[])
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);
-}
+} // end main()
