@@ -16,10 +16,10 @@ namespace Platform
         }
     }
 
-    class WindowGLFW::impl
+    class WindowGLFW::Impl
     {
     public:
-        impl(const ::Core::WindowProps &props)
+        Impl(const ::Core::WindowProps &props)
         {
             if (!glfwInit())
             {
@@ -42,16 +42,15 @@ namespace Platform
 
             glfwMakeContextCurrent(m_window);
 
-            glViewport(0, 0, props.Width, props.Height);
-            glfwSetFramebufferSizeCallback(m_window, framebufferResizeCallback);
-
+            glfwSetFramebufferSizeCallback(m_window, (GLFWframebuffersizefun)framebufferResizeCallback);
             if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
             {
                 std::cout << "Failed to initialize GLAD" << std::endl;
                 throw std::runtime_error("Failed to initialize GLAD");
             }
+            glViewport(0, 0, props.Width, props.Height);
         }
-        virtual ~impl()
+        virtual ~Impl()
         {
             glfwDestroyWindow(m_window);
             glfwTerminate();
@@ -91,7 +90,7 @@ namespace Platform
     // --- WindowGLFW ---
     //
     WindowGLFW::WindowGLFW(const ::Core::WindowProps &props)
-        : m_impl(std::make_unique<WindowGLFW::impl>(props))
+        : m_impl(std::make_unique<WindowGLFW::Impl>(props))
     {
     }
 

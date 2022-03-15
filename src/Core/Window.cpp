@@ -8,9 +8,9 @@
 
 /*static*/ std::unique_ptr<Core::Window> Core::Window::Create(const Core::WindowProps &props)
 {
-#ifndef USE_GLFW
-    std::runtime_error("Only GLFW supported at this stage");
-#else
+#ifdef USE_GLFW
     return std::make_unique<Platform::WindowGLFW>(props);
+#else
+    std::runtime_error("Only GLFW supported at this stage");
 #endif
 }

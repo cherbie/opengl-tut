@@ -9,8 +9,8 @@ namespace Platform
     class WindowGLFW : public ::Core::Window
     {
     public:
-        WindowGLFW(const ::Core::WindowProps &props = ::Core::WindowProps());
-        virtual ~WindowGLFW();
+        WindowGLFW(const ::Core::WindowProps &props);
+        ~WindowGLFW();
 
         void OnUpdate() override;
         uint32_t GetWidth() const override;
@@ -19,7 +19,7 @@ namespace Platform
         void *GetNativeWindow() const override;
 
     protected:
-        class impl;
-        std::unique_ptr<impl> m_impl;
+        class Impl;
+        std::unique_ptr<Impl> m_impl;
     }; // class WindowGLFW
 } // namespace Platform

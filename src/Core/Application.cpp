@@ -40,6 +40,7 @@ namespace Core
     {
         s_Instance = this;
         m_window = Window::Create(WindowProps(name));
+        m_running = true;
 
 #ifdef USE_GLFW
         glfwSetWindowCloseCallback((GLFWwindow *)m_window->GetNativeWindow(), (GLFWwindowclosefun)glfwWindowCloseCallback);
@@ -54,12 +55,6 @@ namespace Core
     {
         m_running = false;
     }
-
-#ifdef USE_GLFW
-    void glfwMainLoop()
-    {
-    }
-#endif // USE_GLFW
 
     void Application::Run()
     {
@@ -159,7 +154,7 @@ namespace Core
 
     Window &Application::GetWindow()
     {
-        return *((Window *)m_window->GetNativeWindow());
+        return *m_window;
     }
 
     void Application::OnWindowClose()
