@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Hazel/Renderer/Buffer.h"
+#include "Engine/Renderer/Buffer.h"
 
-namespace Hazel {
+namespace Engine {
 
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
@@ -21,7 +21,7 @@ namespace Hazel {
 	private:
 		uint32_t m_RendererID;
 		BufferLayout m_Layout;
-	};
+	}; // class OpenGLVertexBuffer
 
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
@@ -36,6 +36,6 @@ namespace Hazel {
 	private:
 		uint32_t m_RendererID;
 		uint32_t m_Count;
-	};
+	}; // class OpenGLIndexBuffer
 
-}
+} // namespace Engine

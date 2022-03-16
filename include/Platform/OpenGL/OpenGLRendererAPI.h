@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Hazel/Renderer/RendererAPI.h"
+#include "Engine/Renderer/RendererAPI.h"
 
-namespace Hazel {
+namespace Engine {
 
 	class OpenGLRendererAPI : public RendererAPI
 	{
@@ -14,7 +14,6 @@ namespace Hazel {
 		virtual void Clear() override;
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
-	};
+	};  // class OpenGLRendererAPI
 
-
-}
+} // namespace Engine

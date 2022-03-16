@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Hazel/Renderer/GraphicsContext.h"
+#include "Engine/Renderer/GraphicsContext.h"
 
 struct GLFWwindow;
 
-namespace Hazel {
+namespace Engine {
 
 	class OpenGLContext : public GraphicsContext
 	{
@@ -16,5 +16,4 @@ namespace Hazel {
 	private:
 		GLFWwindow* m_WindowHandle;
 	};
-
-}
+} // namespace Engine

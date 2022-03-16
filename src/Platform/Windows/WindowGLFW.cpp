@@ -1,4 +1,4 @@
-#include "Platform/WindowGLFW.h"
+#include "Platform/Windows/WindowGLFW.h"
 
 #include <glad/glad.h>
 #define GLFW_INCLUDE_NONE
@@ -6,7 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace Platform
+namespace Engine
 {
     namespace
     {
@@ -19,7 +19,7 @@ namespace Platform
     class WindowGLFW::Impl
     {
     public:
-        Impl(const ::Core::WindowProps &props)
+        Impl(const WindowProps &props)
         {
             if (!glfwInit())
             {
@@ -89,7 +89,7 @@ namespace Platform
     //
     // --- WindowGLFW ---
     //
-    WindowGLFW::WindowGLFW(const ::Core::WindowProps &props)
+    WindowGLFW::WindowGLFW(const WindowProps &props)
         : m_impl(std::make_unique<WindowGLFW::Impl>(props))
     {
     }
@@ -117,4 +117,4 @@ namespace Platform
     {
         return m_impl->GetNativeWindow();
     }
-} // namespace Platform
+} // namespace Engine

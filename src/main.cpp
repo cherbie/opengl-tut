@@ -1,4 +1,4 @@
-#include "Core/Application.h"
+#include "Engine/Core/Application.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -8,14 +8,14 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
-Core::Application *Core::CreateApplication(Core::ApplicationCommandLineArgs args)
+Engine::Application *Engine::CreateApplication(Engine::ApplicationCommandLineArgs args)
 {
-    return new Core::Application("OpenGL Tutorial", args);
+    return new Engine::Application("OpenGL Tutorial", args);
 }
 
 int main(int argc, char **argv)
 {
-    Core::Application *app = Core::CreateApplication({argc, argv});
+    Engine::Application *app = Engine::CreateApplication({argc, argv});
 
     app->Run();
 

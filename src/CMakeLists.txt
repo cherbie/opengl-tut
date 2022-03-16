@@ -4,9 +4,9 @@ add_executable(exe)
 target_sources(exe
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/Core/Window.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/Core/Application.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/Platform/WindowGLFW.cpp)
+            ${CMAKE_CURRENT_SOURCE_DIR}/Engine/Core/Window.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/Engine/Core/Application.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/Platform/Windows/WindowGLFW.cpp)
 
 target_link_libraries(exe LINK_PRIVATE glfw glad)
 target_include_directories(exe

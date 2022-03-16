@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Hazel/Renderer/Shader.h"
+#include "Engine/Renderer/Shader.h"
 #include <glm/glm.hpp>
 
 // TODO: REMOVE!
 typedef unsigned int GLenum;
 
-namespace Hazel {
+namespace Engine {
 
 	class OpenGLShader : public Shader
 	{
@@ -55,6 +55,6 @@ namespace Hazel {
 		std::unordered_map<GLenum, std::vector<uint32_t>> m_OpenGLSPIRV;
 
 		std::unordered_map<GLenum, std::string> m_OpenGLSourceCode;
-	};
+	}; // class OpenGLShader
 
-}
+} // namespace Engine

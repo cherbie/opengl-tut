@@ -1,15 +1,15 @@
 #pragma once
-#include "Core/Window.h"
+#include "Engine/Core/Window.h"
 
 #include <memory>
 
-namespace Platform
+namespace Engine
 {
     // GLFW window management implementation
-    class WindowGLFW : public ::Core::Window
+    class WindowGLFW : public Window
     {
     public:
-        WindowGLFW(const ::Core::WindowProps &props);
+        WindowGLFW(const WindowProps &props);
         ~WindowGLFW();
 
         void OnUpdate() override;
@@ -22,4 +22,4 @@ namespace Platform
         class Impl;
         std::unique_ptr<Impl> m_impl;
     }; // class WindowGLFW
-} // namespace Platform
+} // namespace Engine

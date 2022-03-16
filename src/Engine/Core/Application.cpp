@@ -1,4 +1,4 @@
-#include "Core/Application.h"
+#include "Engine/Core/Application.h"
 
 #ifdef USE_GLFW
 #include "glad/glad.h"
@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-namespace Core
+namespace Engine
 {
     namespace
     {
@@ -167,4 +167,4 @@ namespace Core
     {
         std::cout << "resize" << std::endl;
     }
-} // namespace Core
+} // namespace Engine
